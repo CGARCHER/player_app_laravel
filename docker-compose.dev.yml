@@ -18,11 +18,16 @@ services:
     restart: always
     volumes:
       - .:/var/www/html
-      - /var/www/html/vendor          #volumen para vendor
-      - /var/www/html/node_modules    #volumen node_modules
+      - /var/www/html/vendor          # ← CLAVE: volumen anónimo para vendor
+      - /var/www/html/node_modules    # ← También para node_modules
     ports:
       - "8080:80"
     environment:
+      # Configuración de desarrollo
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - LOG_CHANNEL=stderr
+      
       # Conexión a PostgreSQL
       - DB_CONNECTION=pgsql
       - DB_HOST=db
