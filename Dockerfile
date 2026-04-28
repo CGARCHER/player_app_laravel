@@ -1,8 +1,5 @@
 FROM serversideup/php:8.2-fpm-nginx
 
-# Esta imagen acepta PHP_MEMORY_LIMIT de forma nativa y garantizada
-ENV PHP_MEMORY_LIMIT=512M
-
 # Laravel config
 ENV APP_ENV=production
 ENV APP_DEBUG=false
